@@ -14,4 +14,8 @@
     : stored === 'en' || stored === 'tr' ? stored
     : (navigator.language || '').toLowerCase().indexOf('tr') === 0 ? 'tr' : 'en';
   show(wanted);
+  var top = document.querySelector('header.top');
+  function onScroll() { top.classList.toggle('scrolled', window.scrollY > 8); }
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
 })();
